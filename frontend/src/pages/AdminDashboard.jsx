@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+ï»¿import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 import "./AdminDashboard.css";
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
 export default function AdminDashboard() {
   const navigate = useNavigate();
@@ -73,7 +73,7 @@ export default function AdminDashboard() {
 
       <main className="admin-main">
         <div className="disclaimer-strip-inline">
-          ?? Prototype system — approvals here are for demonstration only and are not connected to any official compensation process.
+          ?? Prototype system â€” approvals here are for demonstration only and are not connected to any official compensation process.
         </div>
 
         <h1>Claims overview</h1>
@@ -86,7 +86,7 @@ export default function AdminDashboard() {
               <line x1="12" y1="17" x2="12.01" y2="17" />
             </svg>
             <span>
-              <strong>{stats.high_risk_alerts}</strong> high-risk claim{stats.high_risk_alerts != 1 ? "s" : ""} need attention — click to review
+              <strong>{stats.high_risk_alerts}</strong> high-risk claim{stats.high_risk_alerts != 1 ? "s" : ""} need attention â€” click to review
             </span>
           </div>
         )}
@@ -143,12 +143,12 @@ export default function AdminDashboard() {
               <div key={c.claim_id} className={"table-row" + (c.final_result === "HIGH_RISK" ? " high-risk-row" : "")} onClick={() => navigate("/admin/claims/" + c.claim_id)}>
                 <span>#{c.claim_id}</span>
                 <span>{c.farmer_name}</span>
-                <span>{c.gat_number ? "Gat " + c.gat_number : "—"}</span>
-                <span>{c.crop_type || "—"}</span>
+                <span>{c.gat_number ? "Gat " + c.gat_number : "â€”"}</span>
+                <span>{c.crop_type || "â€”"}</span>
                 <span>
                   {c.final_result ? (
                     <span className={"risk-badge " + riskBadgeClass(c.final_result)}>{c.final_result.replace("_", " ")}</span>
-                  ) : "—"}
+                  ) : "â€”"}
                 </span>
                 <span className={"status-pill " + c.status}>{c.status.replace("_", " ")}</span>
                 <span className="view-link">View ?</span>
@@ -160,4 +160,5 @@ export default function AdminDashboard() {
     </div>
   );
 }
+
 

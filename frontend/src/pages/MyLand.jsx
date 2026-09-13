@@ -4,7 +4,7 @@ import { MapContainer, TileLayer, Polygon } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "./MyLand.css";
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
 export default function MyLand() {
   const navigate = useNavigate();
@@ -112,3 +112,4 @@ export default function MyLand() {
     </div>
   );
 }
+

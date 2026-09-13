@@ -1,9 +1,9 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 import "./AuthPage.css";
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
 export default function AuthPage() {
   const navigate = useNavigate();
@@ -75,7 +75,7 @@ export default function AuthPage() {
         </div>
 
         <div className="hero-copy">
-          <h1>Your field, your proof, your claim � verified in one place.</h1>
+          <h1>Your field, your proof, your claim — verified in one place.</h1>
           <p>Capture your damaged crop with your phone. We match your location to your land record and build the evidence your claim needs.</p>
         </div>
 
@@ -176,4 +176,5 @@ export default function AuthPage() {
     </div>
   );
 }
+
 

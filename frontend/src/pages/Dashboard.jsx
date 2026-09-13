@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+ï»¿import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 import "./Dashboard.css";
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -194,7 +194,7 @@ export default function Dashboard() {
 
       <main className="dash-main">
         <div className="disclaimer-strip-inline">
-          ?? This is a prototype system for academic demonstration — not an official government or insurance service. Claims here do not guarantee real compensation.
+          ?? This is a prototype system for academic demonstration â€” not an official government or insurance service. Claims here do not guarantee real compensation.
         </div>
 
         <div className="hero-banner">
@@ -236,8 +236,8 @@ export default function Dashboard() {
             <div className="widget-card weather-widget">
               <div className="widget-icon">{weatherIcon(weather.weathercode)}</div>
               <div>
-                <span className="widget-value">{Math.round(weather.temperature)}°C</span>
-                <span className="widget-label">Current weather · Wind {Math.round(weather.windspeed)} km/h</span>
+                <span className="widget-value">{Math.round(weather.temperature)}Â°C</span>
+                <span className="widget-label">Current weather Â· Wind {Math.round(weather.windspeed)} km/h</span>
               </div>
             </div>
           )}
@@ -247,7 +247,7 @@ export default function Dashboard() {
               <div className="widget-icon">???</div>
               <div>
                 <span className="widget-value">Gat {firstPlot.gat_number}</span>
-                <span className="widget-label">{firstPlot.village} · {firstPlot.area_acres} acres</span>
+                <span className="widget-label">{firstPlot.village} Â· {firstPlot.area_acres} acres</span>
               </div>
             </div>
           )}
@@ -269,7 +269,7 @@ export default function Dashboard() {
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 2h9l5 5v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/></svg>
             </div>
             <div>
-              <span className="stat-value">{loading ? "—" : total}</span>
+              <span className="stat-value">{loading ? "â€”" : total}</span>
               <span className="stat-label">Total claims</span>
             </div>
           </div>
@@ -278,7 +278,7 @@ export default function Dashboard() {
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 6L9 17l-5-5"/></svg>
             </div>
             <div>
-              <span className="stat-value">{loading ? "—" : approved}</span>
+              <span className="stat-value">{loading ? "â€”" : approved}</span>
               <span className="stat-label">Approved</span>
             </div>
           </div>
@@ -287,7 +287,7 @@ export default function Dashboard() {
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
             </div>
             <div>
-              <span className="stat-value">{loading ? "—" : pending}</span>
+              <span className="stat-value">{loading ? "â€”" : pending}</span>
               <span className="stat-label">Pending</span>
             </div>
           </div>
@@ -296,7 +296,7 @@ export default function Dashboard() {
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
             </div>
             <div>
-              <span className="stat-value">{loading ? "—" : rejected}</span>
+              <span className="stat-value">{loading ? "â€”" : rejected}</span>
               <span className="stat-label">Rejected</span>
             </div>
           </div>
@@ -326,7 +326,7 @@ export default function Dashboard() {
                 <div key={c.claim_id} className="recent-claim-row" onClick={() => navigate("/claims")}>
                   <div>
                     <strong>Claim #{c.claim_id}</strong>
-                    <span className="recent-claim-crop">{c.crop_type || "—"} · {c.gat_number ? "Gat " + c.gat_number : "—"}</span>
+                    <span className="recent-claim-crop">{c.crop_type || "â€”"} Â· {c.gat_number ? "Gat " + c.gat_number : "â€”"}</span>
                   </div>
                   <span className={"status-pill-small " + statusClass(c.status)}>{c.status.replace("_", " ")}</span>
                 </div>
@@ -338,5 +338,6 @@ export default function Dashboard() {
     </div>
   );
 }
+
 
 

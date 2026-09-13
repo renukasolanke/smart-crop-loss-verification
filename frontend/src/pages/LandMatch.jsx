@@ -13,7 +13,7 @@ L.Icon.Default.mergeOptions({
   shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
 });
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
 export default function LandMatch() {
   const navigate = useNavigate();
@@ -194,3 +194,4 @@ export default function LandMatch() {
     </div>
   );
 }
+
