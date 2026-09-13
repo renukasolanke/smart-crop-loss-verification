@@ -1,0 +1,209 @@
+﻿.camera-shell {
+  min-height: 100vh;
+  background: #141710;
+  color: #F5F6F0;
+  font-family: "IBM Plex Sans", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.camera-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: #F5F6F0;
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+  opacity: 0.85;
+}
+
+.camera-title { font-size: 15px; font-weight: 600; }
+
+.camera-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px 32px;
+  max-width: 520px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.video-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: #000;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+
+.video-feed { width: 100%; height: 100%; object-fit: cover; }
+
+.camera-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 24px;
+  text-align: center;
+  color: #cfd2c7;
+  font-size: 14px;
+}
+
+.overlay-info {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(15,20,14,0.55);
+  backdrop-filter: blur(3px);
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 12.5px;
+  line-height: 1.9;
+  color: #eef2ea;
+}
+
+.overlay-row { display: flex; align-items: center; gap: 6px; }
+
+.gps-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #B3432B; display: inline-block;
+}
+.gps-dot.active { background: #4caf6a; }
+
+.accuracy-good { color: #7fd9a0; }
+.accuracy-moderate { color: #C89B3C; }
+.accuracy-poor { color: #e08064; }
+
+.alert-banner {
+  background: rgba(179,67,43,0.18);
+  border: 1px solid rgba(179,67,43,0.4);
+  color: #f0a894;
+  font-size: 13px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-bottom: 14px;
+  width: 100%;
+  text-align: center;
+}
+
+.capture-btn {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: none;
+  border: 3px solid #F5F6F0;
+  padding: 4px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.capture-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+.capture-ring {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #C89B3C;
+}
+
+.capture-hint { font-size: 13px; color: #a9ac9f; margin: 0; }
+
+/* PREVIEW */
+.preview-wrap { width: 100%; }
+
+.preview-img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+
+.preview-meta {
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+}
+
+.meta-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  padding: 6px 0;
+  color: #cfd2c7;
+}
+
+.meta-row strong { color: #F5F6F0; font-weight: 500; }
+
+.preview-actions { display: flex; gap: 12px; }
+
+.btn-secondary, .preview-actions .btn-primary {
+  flex: 1;
+  padding: 13px 16px;
+  border-radius: 6px;
+  font-size: 14.5px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-secondary {
+  background: rgba(255,255,255,0.08);
+  color: #F5F6F0;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.preview-actions .btn-primary {
+  background: #C89B3C;
+  color: #22270f;
+}
+.preview-actions .btn-primary:hover { background: #b28a30; }
+
+.gps-status-card {
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  line-height: 1.9;
+  color: #eef2ea;
+}
+
+.upload-zone {
+  width: 100%;
+  aspect-ratio: 3/4;
+  border: 2px dashed rgba(245,246,240,0.25);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  color: #cfd2c7;
+  text-align: center;
+  padding: 24px;
+}
+
+.upload-zone:hover { border-color: #C89B3C; color: #F5F6F0; }
+
+.upload-zone p { margin: 0; font-size: 15px; font-weight: 500; }
+.upload-zone span { font-size: 12.5px; color: #8f9286; }
